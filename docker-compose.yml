@@ -2,7 +2,7 @@ version: "3"
 
 services:
   php:
-    container_name: phpMain
+    container_name: php_main
     build:
       context: .
       dockerfile: .docker/php/Dockerfile
@@ -47,7 +47,7 @@ services:
       - nginx:daybydaycrm.test
 
   db:
-    container_name: dbMain
+    container_name: db_main
     image: mysql:5.7
     volumes:
       - dbdata:/var/lib/mysql
@@ -64,7 +64,7 @@ services:
       - service_net
 
   nginx:
-    container_name: nginxMain
+    container_name: nginx_main
     build:
       context: .
       dockerfile: ./.docker/nginx/Dockerfile
@@ -82,7 +82,7 @@ services:
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.4.1
-    container_name: elasticsearchMain
+    container_name: elasticsearch_main
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
@@ -100,7 +100,7 @@ services:
 
   elasticsearch2:
     image: docker.elastic.co/elasticsearch/elasticsearch:6.4.1
-    container_name: elasticsearchSecond
+    container_name: elasticsearch_second
     environment:
       - cluster.name=docker-cluster
       - bootstrap.memory_lock=true
@@ -119,7 +119,7 @@ services:
 
   redis:
     image: 'bitnami/redis:latest'
-    container_name: redisMain
+    container_name: redis_main
     environment:
       - ALLOW_EMPTY_PASSWORD=yes
     volumes:
