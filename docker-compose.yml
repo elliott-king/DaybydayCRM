@@ -2,6 +2,8 @@ version: "3"
 
 services:
   php:
+    labels:
+      shipyard.init: composer install && php artisan migrate --seed && npm install
     container_name: php_main
     build:
       context: .

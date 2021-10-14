@@ -75,5 +75,5 @@ EXPOSE 80
 EXPOSE 433
 
 # RUN cd /var/www/html && composer install -q --no-dev -o
-CMD composer install --no-ansi --no-dev --no-interaction --optimize-autoloader && php-fpm -D && nginx -g "daemon off;"
+CMD composer install --no-ansi --no-dev --no-interaction --optimize-autoloader && php-fpm -D && nginx -g "daemon off;" && npm run dev
 
